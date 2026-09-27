@@ -60,3 +60,20 @@ describe('assembly instructions', () => {
     expect(mark.lines.some((l) => /mark at 6", 33"/.test(l))).toBe(true);
   });
 });
+
+describe('markdown build sheet', () => {
+  it('includes the cut list, connectors and every step', async () => {
+    const { buildMarkdown } = await import('./exportDoc');
+    const { buildBom, DEFAULT_ORDER } = await import('./bom');
+    const t = TEMPLATES.find((x) => x.id === 'shelf')!;
+    const d = designFromTemplate(t, templateDefaults(t), '3/4');
+    const a = analyze(d);
+    const plan = buildCutPlan(a);
+    const steps = buildInstructions(a, plan, { units: 'imperial' });
+    const md = buildMarkdown(d, a, plan, buildBom(d, a, plan, DEFAULT_ORDER), steps, 'imperial');
+    expect(md).toContain('# Shelving unit: build sheet');
+    expect(md).toContain('| A | 3/4" | 61" | 4 | 6", 33" |');
+    expect(md).toContain('- 12 × 90 Degree Connector (3/4")');
+    expect(md.match(/^### /gm)?.length).toBe(steps.length);
+  });
+});

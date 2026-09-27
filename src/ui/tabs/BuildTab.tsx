@@ -6,13 +6,15 @@ import { useDerived } from '../../state/derived';
 import { useStore } from '../../state/store';
 import { Glyph } from '../Glyph';
 import { Icon } from '../icons';
-import { EMBEDDED } from '../util';
+import { EMBEDDED, copyText, saveFile, slug, useCanSaveFiles } from '../util';
+import { buildMarkdown } from '../../model/exportDoc';
 
 export function BuildTab() {
-  const { steps, analysis, design } = useDerived();
+  const { steps, analysis, design, plan, bom } = useDerived();
   const step = useStore((s) => s.step);
   const units = useStore((s) => s.units);
-  const { setStep, frame } = useStore.getState();
+  const { setStep, frame, notify } = useStore.getState();
+  const canSave = useCanSaveFiles();
   const current = Math.min(step, Math.max(0, steps.length - 1));
   const refs = useRef<(HTMLLIElement | null)[]>([]);
 
@@ -68,6 +70,27 @@ export function BuildTab() {
           The 3D view follows the steps: new parts are yellow, finished ones grey, later ones faint. Use the arrows here or under
           the view.
         </p>
+        <div className="row no-print">
+          <button
+            className="btn small"
+            onClick={async () =>
+              notify((await copyText(buildMarkdown(design, analysis, plan, bom, steps, units))) ? 'Build sheet copied' : 'Copy failed: your browser blocked the clipboard')
+            }
+          >
+            <Icon.clipboard /> Copy build sheet
+          </button>
+          {canSave && (
+            <button
+              className="btn small"
+              onClick={async () => {
+                const msg = await saveFile(`${slug(design.name)}-build-sheet.md`, buildMarkdown(design, analysis, plan, bom, steps, units), 'text/markdown');
+                if (msg) notify(msg);
+              }}
+            >
+              <Icon.download /> Save build sheet
+            </button>
+          )}
+        </div>
       </div>
       <ol className="steps">
         {steps.map((s, i) => {
