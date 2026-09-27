@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useStore } from '../state/store';
 import { designToJson, encodeShare, parseDesign } from '../state/serialize';
 import { Icon } from './icons';
-import { EMBEDDED, copyText, downloadFile, slug } from './util';
+import { EMBEDDED, copyText, saveFile, slug, useCanSaveFiles } from './util';
 
 export function BrandMark() {
   // A T Connector seen down its through pipe.
@@ -50,6 +50,7 @@ export function TopBar({ onPaste }: { onPaste: () => void }) {
   const { undo, redo, setDesignField, setPrefs, setTemplateOpen, loadDesign, notify } = useStore.getState();
   const [open, setOpen] = useState(false);
   const [theme, setTheme] = useThemeChoice();
+  const canSave = useCanSaveFiles();
   const menuRef = useRef<HTMLDivElement>(null);
   const fileRef = useRef<HTMLInputElement>(null);
   const [name, setName] = useState(design.name);
@@ -148,9 +149,17 @@ export function TopBar({ onPaste }: { onPaste: () => void }) {
                 <Icon.clipboard /> Paste design text…
               </button>
               <hr />
-              <button role="menuitem" onClick={run(() => downloadFile(`${slug(design.name)}.pipeframe.json`, designToJson(design), 'application/json'))}>
-                <Icon.download /> Save design file
-              </button>
+              {canSave && (
+                <button
+                  role="menuitem"
+                  onClick={run(async () => {
+                    const msg = await saveFile(`${slug(design.name)}.pipeframe.json`, designToJson(design), 'application/json');
+                    if (msg) notify(msg);
+                  })}
+                >
+                  <Icon.download /> Save design file
+                </button>
+              )}
               <button
                 role="menuitem"
                 onClick={run(async () => notify((await copyText(designToJson(design))) ? 'Design copied as text' : 'Copy failed: your browser blocked the clipboard'))}

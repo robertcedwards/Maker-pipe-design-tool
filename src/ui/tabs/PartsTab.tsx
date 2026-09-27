@@ -5,7 +5,7 @@ import { useDerived } from '../../state/derived';
 import { useStore } from '../../state/store';
 import { Glyph } from '../Glyph';
 import { Icon } from '../icons';
-import { copyText, downloadFile, slug } from '../util';
+import { copyText, saveFile, slug, useCanSaveFiles } from '../util';
 
 const BASIS_CHIP: Record<string, { cls: string; text: string; title: string } | undefined> = {
   estimate: { cls: 'warning', text: 'est.', title: 'Only the 3/4" price was found; this size is assumed to cost the same.' },
@@ -68,6 +68,7 @@ export function PartsTab() {
   const { design, bom } = useDerived();
   const order = useStore((s) => s.order);
   const { setOrder, notify, setTab } = useStore.getState();
+  const canSave = useCanSaveFiles();
   const store = bom.lines.filter((l) => l.vendor === 'makerpipe');
   const local = bom.lines.filter((l) => l.vendor === 'local');
   const cart = cartLink(bom);
@@ -216,9 +217,17 @@ export function PartsTab() {
           >
             <Icon.clipboard /> Copy parts list
           </button>
-          <button className="btn" onClick={() => downloadFile(`${slug(design.name)}-parts.csv`, orderCsv(bom), 'text/csv')}>
-            <Icon.download /> Download CSV
-          </button>
+          {canSave && (
+            <button
+              className="btn"
+              onClick={async () => {
+                const msg = await saveFile(`${slug(design.name)}-parts.csv`, orderCsv(bom), 'text/csv');
+                if (msg) notify(msg);
+              }}
+            >
+              <Icon.download /> Download CSV
+            </button>
+          )}
         </div>
         <p className="note">
           Prices were gathered on {pricesGatheredLabel()} and may have changed. Each item name links to its store page; check the cart before you pay. This tool is not
