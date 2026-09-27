@@ -1,0 +1,38 @@
+{
+  "name": "maker-pipe-design-tool",
+  "private": true,
+  "version": "0.1.0",
+  "description": "3D layout, price list, order builder and assembly instructions for Maker Pipe connectors and EMT conduit.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "build:single": "tsc --noEmit && vite build --mode single",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "sync-prices": "node --experimental-strip-types scripts/sync-prices.mjs"
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.7.9",
+    "@react-three/fiber": "^9.8.1",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "three": "^0.186.1",
+    "zustand": "^5.0.15"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/three": "^0.186.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "typescript": "^5.9.3",
+    "vite": "^8.3.1",
+    "vite-plugin-singlefile": "^2.3.3",
+    "vitest": "^5.0.2"
+  },
+  "engines": {
+    "node": ">=22.18"
+  }
+}
