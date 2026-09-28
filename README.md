@@ -84,4 +84,4 @@ scripts/
 
 ### Deploying
 
-`dist/` is a static site that works from any path. The **Deploy to GitHub Pages** workflow in `.github/workflows/pages.yml` publishes it; enable Pages for the repository (Settings › Pages › Source: GitHub Actions), then run the workflow from the Actions tab. Add a `push` trigger to it to deploy on every merge to `main`.
+`dist/` is a static site that works from any path. The **Deploy to GitHub Pages** workflow in `.github/workflows/pages.yml` publishes it on every push to `main`, so merging a pull request updates the site. It needs Pages enabled for the repository (Settings › Pages › Source: GitHub Actions). To redeploy without a new commit, open the workflow on the Actions tab and click **Run workflow**.
