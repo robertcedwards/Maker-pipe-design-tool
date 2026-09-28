@@ -1,8 +1,11 @@
 name: Deploy to GitHub Pages
 
-# Manual for now: enable Pages (Settings > Pages > Source: GitHub Actions)
-# first, then add `push: { branches: [main] }` here to deploy on every merge.
+# Deploys every push to main, so merging a pull request updates the site.
+# "Run workflow" on the Actions tab redeploys without a new commit.
+# Needs Settings > Pages > Source: GitHub Actions.
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -10,9 +13,11 @@ permissions:
   pages: write
   id-token: write
 
+# One deployment at a time; a newer push waits for the running one to finish
+# instead of cancelling it halfway.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
