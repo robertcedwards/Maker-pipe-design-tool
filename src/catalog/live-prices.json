@@ -1,1 +1,1425 @@
-{ "fetchedAt": null, "products": {} }
+{
+  "fetchedAt": "2026-09-29T15:34:44.275Z",
+  "source": "https://makerpipe.com",
+  "products": {
+    "1-2-emt-conduit-adapter-shim": {
+      "title": "3/4\" To 1/2\" EMT Conduit Standard Adapter Shim",
+      "variants": [
+        {
+          "id": "16972701794347",
+          "title": "",
+          "price": 0.1,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2034"
+        }
+      ]
+    },
+    "1-2-to-3-4telescoping-connector": {
+      "title": "Telescoping Clamp",
+      "variants": [
+        {
+          "id": "50722282406162",
+          "title": "Knob",
+          "price": 10.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2021"
+        },
+        {
+          "id": "50722282438930",
+          "title": "Quick Clamp",
+          "price": 11.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0087"
+        }
+      ]
+    },
+    "1-to-3-4-emt-conduit-adapter-shim": {
+      "title": "1\" EMT To 3/4\" EMT Conduit Adapter Shim",
+      "variants": [
+        {
+          "id": "39444042842185",
+          "title": "",
+          "price": 0.15,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2047"
+        }
+      ]
+    },
+    "135-degree-structural-pipe-connector": {
+      "title": "135 Degree Structural Pipe Connector",
+      "variants": [
+        {
+          "id": "39486141562953",
+          "title": "Silver / 3/4\"",
+          "price": 5.79,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0031"
+        },
+        {
+          "id": "39641483509833",
+          "title": "Silver / 1/2\"",
+          "price": 6.09,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0046"
+        }
+      ]
+    },
+    "180-degree-connector": {
+      "title": "180 Degree Structural Pipe Connector",
+      "variants": [
+        {
+          "id": "39295986466889",
+          "title": "Silver / 3/4\"",
+          "price": 5.45,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0022"
+        },
+        {
+          "id": "39641511460937",
+          "title": "Silver / 1/2\"",
+          "price": 5.75,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0036"
+        },
+        {
+          "id": "39731002638409",
+          "title": "Silver / 1\"",
+          "price": 7.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0058"
+        }
+      ]
+    },
+    "3-4-emt-conduit-adapter-shim": {
+      "title": "Pipe & Tube Adapter Shim",
+      "variants": [
+        {
+          "id": "39442801393737",
+          "title": "",
+          "price": 0.15,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2045"
+        }
+      ]
+    },
+    "4-way-connector-structural-pipe-project": {
+      "title": "4 Way Structural Pipe Connector",
+      "variants": [
+        {
+          "id": "39295966543945",
+          "title": "Silver / 3/4\"",
+          "price": 7.49,
+          "compareAt": 0,
+          "available": true,
+          "sku": "MP0025"
+        },
+        {
+          "id": "39641478070345",
+          "title": "Silver / 1/2\"",
+          "price": 7.89,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0040"
+        },
+        {
+          "id": "39731001688137",
+          "title": "Silver / 1\"",
+          "price": 10.95,
+          "compareAt": 0,
+          "available": true,
+          "sku": "MP0060"
+        }
+      ]
+    },
+    "45-degree-connector": {
+      "title": "45 Degree Structural Pipe Connector",
+      "variants": [
+        {
+          "id": "39295981060169",
+          "title": "Silver / 3/4\"",
+          "price": 5.45,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0024"
+        },
+        {
+          "id": "39641502744649",
+          "title": "Silver / 1/2\"",
+          "price": 5.65,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0038"
+        },
+        {
+          "id": "48017020551442",
+          "title": "Silver / 1\"",
+          "price": 7.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0078"
+        }
+      ]
+    },
+    "5-way-connector": {
+      "title": "5 Way Connector",
+      "variants": [
+        {
+          "id": "39295923060809",
+          "title": "Silver / 3/4\"",
+          "price": 8.49,
+          "compareAt": 0,
+          "available": true,
+          "sku": "MP0026"
+        },
+        {
+          "id": "39641472729161",
+          "title": "Silver / 1/2\"",
+          "price": 8.99,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0042"
+        },
+        {
+          "id": "39731001229385",
+          "title": "Silver / 1\"",
+          "price": 12.45,
+          "compareAt": 0,
+          "available": true,
+          "sku": "MP0061"
+        }
+      ]
+    },
+    "90-degree-connector": {
+      "title": "90 Degree Structural Pipe Connector",
+      "variants": [
+        {
+          "id": "39296017989705",
+          "title": "SIlver / 3/4\"",
+          "price": 5.95,
+          "compareAt": 0,
+          "available": true,
+          "sku": "MP0023"
+        },
+        {
+          "id": "39641513984073",
+          "title": "SIlver / 1/2\"",
+          "price": 6.25,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0034"
+        },
+        {
+          "id": "39731002277961",
+          "title": "SIlver / 1\"",
+          "price": 8.79,
+          "compareAt": 0,
+          "available": true,
+          "sku": "MP0059"
+        }
+      ]
+    },
+    "adjustable-180-degree-connector": {
+      "title": "Adjustable 180 Degree Connector",
+      "variants": [
+        {
+          "id": "40140869566537",
+          "title": "Silver / 3/4\" / Complete",
+          "price": 9.95,
+          "compareAt": 0,
+          "available": true,
+          "sku": "MP0068"
+        },
+        {
+          "id": "46273733361938",
+          "title": "Silver / 3/4\" / Middle Clamp",
+          "price": 2.95,
+          "compareAt": 0,
+          "available": true,
+          "sku": "MP0074"
+        },
+        {
+          "id": "40140869599305",
+          "title": "Silver / 1/2\" / Complete",
+          "price": 10.25,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0069"
+        }
+      ]
+    },
+    "adjustable-angle-connector-hinge-connector": {
+      "title": "Adjustable Angle Hinge Connector",
+      "variants": [
+        {
+          "id": "39413134032969",
+          "title": "Silver / 3/4\" / Complete",
+          "price": 7.49,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0027"
+        },
+        {
+          "id": "39674158284873",
+          "title": "Silver / 3/4\" / End Clamp",
+          "price": 4.25,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0029"
+        },
+        {
+          "id": "39947807653961",
+          "title": "Silver / 3/4\" / Puzzle Piece Clamp",
+          "price": 3.24,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP00011"
+        },
+        {
+          "id": "39641719144521",
+          "title": "Silver / 1/2\" / Complete",
+          "price": 7.69,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0044"
+        },
+        {
+          "id": "39674158317641",
+          "title": "Silver / 1/2\" / End Clamp",
+          "price": 4.35,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0057"
+        },
+        {
+          "id": "40109031227465",
+          "title": "Silver / 1/2\" / Puzzle Piece Clamp",
+          "price": 3.34,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0067"
+        },
+        {
+          "id": "47847980728594",
+          "title": "Silver / 1\" / Complete",
+          "price": 9.49,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0075"
+        },
+        {
+          "id": "47847980761362",
+          "title": "Silver / 1\" / End Clamp",
+          "price": 5.25,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0076"
+        },
+        {
+          "id": "47847980794130",
+          "title": "Silver / 1\" / Puzzle Piece Clamp",
+          "price": 4.24,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0077"
+        }
+      ]
+    },
+    "adjustable-angle-flange": {
+      "title": "Adjustable Angle Flange",
+      "variants": [
+        {
+          "id": "39670502981705",
+          "title": "Silver / 3/4\" / Complete",
+          "price": 7.49,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0048"
+        },
+        {
+          "id": "46243901276434",
+          "title": "Silver / 3/4\" / Base Pieces Only",
+          "price": 3.24,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0073"
+        },
+        {
+          "id": "39670503047241",
+          "title": "Silver / 1/2\" / Complete",
+          "price": 7.59,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0049"
+        },
+        {
+          "id": "48893692018962",
+          "title": "Silver / 1\" / Complete",
+          "price": 9.49,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0081"
+        }
+      ]
+    },
+    "barrel-hinge": {
+      "title": "Barrel Hinge",
+      "variants": [
+        {
+          "id": "51350383657234",
+          "title": "3/4\" Connectors / Standard",
+          "price": 8.49,
+          "compareAt": null,
+          "available": false,
+          "sku": "MP2104"
+        },
+        {
+          "id": "52266380787986",
+          "title": "3/4\" Connectors / Defects (B-Stock)",
+          "price": 6.49,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2104X"
+        }
+      ]
+    },
+    "big-kit-modular-pipe-connector": {
+      "title": "Big Kit",
+      "variants": [
+        {
+          "id": "39425871446089",
+          "title": "Silver",
+          "price": 951.9,
+          "compareAt": 1002,
+          "available": true,
+          "sku": "MP1024"
+        },
+        {
+          "id": "39425871413321",
+          "title": "Black",
+          "price": 951.9,
+          "compareAt": 1002,
+          "available": true,
+          "sku": "MP1004"
+        }
+      ]
+    },
+    "build-anything-bundle": {
+      "title": "Build Anything Bundle",
+      "variants": [
+        {
+          "id": "39658873028681",
+          "title": "Silver / 3/4\" / Without",
+          "price": 880.64,
+          "compareAt": 998.68,
+          "available": true,
+          "sku": "MP1076"
+        },
+        {
+          "id": "39658873094217",
+          "title": "Silver / 3/4\" / With",
+          "price": 903.39,
+          "compareAt": 1022.63,
+          "available": true,
+          "sku": "MP1077"
+        },
+        {
+          "id": "39658873126985",
+          "title": "Silver / 1/2\" / Without",
+          "price": 925.86,
+          "compareAt": 1046.28,
+          "available": true,
+          "sku": "MP1078"
+        },
+        {
+          "id": "39658873159753",
+          "title": "Silver / 1/2\" / With",
+          "price": 948.61,
+          "compareAt": 1070.23,
+          "available": true,
+          "sku": "MP1079"
+        }
+      ]
+    },
+    "build-it-yourself-connector-kit": {
+      "title": "Build It Yourself Maker Kit",
+      "variants": [
+        {
+          "id": "30907979759659",
+          "title": "Single Kit",
+          "price": 85.63,
+          "compareAt": 81.9,
+          "available": false,
+          "sku": "SQ6654211"
+        },
+        {
+          "id": "30908007022635",
+          "title": "Double It!",
+          "price": 171.26,
+          "compareAt": 163.8,
+          "available": false,
+          "sku": "MP1006"
+        },
+        {
+          "id": "30908007055403",
+          "title": "Triple It!",
+          "price": 256.89,
+          "compareAt": 245.7,
+          "available": false,
+          "sku": "MP1007"
+        }
+      ]
+    },
+    "builder-bundle": {
+      "title": "Builder Bundle",
+      "variants": [
+        {
+          "id": "39658699554889",
+          "title": "Silver / 3/4\" / Without",
+          "price": 382.08,
+          "compareAt": 436.76,
+          "available": true,
+          "sku": "MP1060"
+        },
+        {
+          "id": "39658699587657",
+          "title": "Silver / 3/4\" / With",
+          "price": 404.83,
+          "compareAt": 460.71,
+          "available": true,
+          "sku": "MP1061"
+        },
+        {
+          "id": "39658699620425",
+          "title": "Silver / 1/2\" / Without",
+          "price": 401.84,
+          "compareAt": 457.56,
+          "available": true,
+          "sku": "MP1062"
+        },
+        {
+          "id": "39658699653193",
+          "title": "Silver / 1/2\" / With",
+          "price": 424.59,
+          "compareAt": 481.51,
+          "available": true,
+          "sku": "MP1063"
+        }
+      ]
+    },
+    "caster-insert-5x13x1-5": {
+      "title": "Caster Insert 1/2-13x1.5",
+      "variants": [
+        {
+          "id": "17209150341163",
+          "title": "",
+          "price": 5,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2013"
+        }
+      ]
+    },
+    "caster-kit-structural-pipe-project": {
+      "title": "Caster Kit",
+      "variants": [
+        {
+          "id": "39444022100041",
+          "title": "3/4\" EMT Conduit",
+          "price": 43.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2001"
+        },
+        {
+          "id": "39444022132809",
+          "title": "1\" EMT Conduit",
+          "price": 43.95,
+          "compareAt": null,
+          "available": false,
+          "sku": "MP2037"
+        }
+      ]
+    },
+    "conduit-end-cap-plug": {
+      "title": "Conduit End Plug / Cap",
+      "variants": [
+        {
+          "id": "31713783775305",
+          "title": "3/4\" EMT Conduit",
+          "price": 4.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2003"
+        },
+        {
+          "id": "31770204471369",
+          "title": "1/2\" EMT Conduit",
+          "price": 4.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2035"
+        },
+        {
+          "id": "39444019576905",
+          "title": "1\" EMT Conduit",
+          "price": 5.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2036"
+        }
+      ]
+    },
+    "conduit-mounting-straps": {
+      "title": "EMT Conduit Mounting Straps",
+      "variants": [
+        {
+          "id": "44056880349458",
+          "title": "3/4\"",
+          "price": 2.45,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2089"
+        },
+        {
+          "id": "44056880382226",
+          "title": "1/2\"",
+          "price": 1.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2088"
+        },
+        {
+          "id": "44056880414994",
+          "title": "1\"",
+          "price": 2.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2090"
+        }
+      ]
+    },
+    "creators-bundle": {
+      "title": "Creator's Bundle",
+      "variants": [
+        {
+          "id": "39658745561161",
+          "title": "Silver / 3/4\" / Without",
+          "price": 541.74,
+          "compareAt": 617.06,
+          "available": true,
+          "sku": "MP1068"
+        },
+        {
+          "id": "39658745593929",
+          "title": "Silver / 3/4\" / With",
+          "price": 564.49,
+          "compareAt": 641.01,
+          "available": true,
+          "sku": "MP1069"
+        },
+        {
+          "id": "39658745626697",
+          "title": "Silver / 1/2\" / Without",
+          "price": 570.05,
+          "compareAt": 646.86,
+          "available": true,
+          "sku": "MP1070"
+        },
+        {
+          "id": "39658745659465",
+          "title": "Silver / 1/2\" / With",
+          "price": 592.8,
+          "compareAt": 670.81,
+          "available": true,
+          "sku": "MP1071"
+        }
+      ]
+    },
+    "diy-bundle": {
+      "title": "DIY Bundle",
+      "variants": [
+        {
+          "id": "39658671013961",
+          "title": "Silver / 3/4\" / Without",
+          "price": 247.48,
+          "compareAt": 280.4,
+          "available": true,
+          "sku": "MP1052"
+        },
+        {
+          "id": "39658671046729",
+          "title": "Silver / 3/4\" / With",
+          "price": 270.24,
+          "compareAt": 304.35,
+          "available": true,
+          "sku": "MP1053"
+        },
+        {
+          "id": "39658671079497",
+          "title": "Silver / 1/2\" / Without",
+          "price": 259.07,
+          "compareAt": 292.6,
+          "available": true,
+          "sku": "MP1054"
+        },
+        {
+          "id": "39658671112265",
+          "title": "Silver / 1/2\" / With",
+          "price": 281.83,
+          "compareAt": 316.55,
+          "available": true,
+          "sku": "MP1055"
+        }
+      ]
+    },
+    "diy-countertop-pipe-desk-kit": {
+      "title": "DIY Countertop Pipe Desk Kit",
+      "variants": [
+        {
+          "id": "39783769866313",
+          "title": "Silver",
+          "price": 79.28,
+          "compareAt": null,
+          "available": true,
+          "sku": null
+        }
+      ]
+    },
+    "diy-pipe-desk-kit": {
+      "title": "DIY Pipe Desk Kit",
+      "variants": [
+        {
+          "id": "39565066829897",
+          "title": "Silver",
+          "price": 46.92,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2059"
+        }
+      ]
+    },
+    "emt-conduit-cutter": {
+      "title": "EMT Conduit Cutter",
+      "variants": [
+        {
+          "id": "31680617021513",
+          "title": "",
+          "price": 21.95,
+          "compareAt": 0,
+          "available": true,
+          "sku": "MP2009"
+        }
+      ]
+    },
+    "emt-conduit-two-hole-straps": {
+      "title": "EMT Conduit Two Hole Straps",
+      "variants": [
+        {
+          "id": "44056890573074",
+          "title": "3/4\"",
+          "price": 2.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2094"
+        },
+        {
+          "id": "44056890605842",
+          "title": "1/2\"",
+          "price": 1.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2091"
+        },
+        {
+          "id": "44056890638610",
+          "title": "1\"",
+          "price": 3.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2093"
+        }
+      ]
+    },
+    "flange-connector": {
+      "title": "Flange Connector",
+      "variants": [
+        {
+          "id": "39670330064969",
+          "title": "Silver / 3/4\"",
+          "price": 5.45,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0052"
+        },
+        {
+          "id": "39670330097737",
+          "title": "Silver / 1/2\"",
+          "price": 5.55,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0053"
+        },
+        {
+          "id": "48216873271570",
+          "title": "Silver / 1\"",
+          "price": 5.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0080"
+        }
+      ]
+    },
+    "friction-bands": {
+      "title": "Friction Bands",
+      "variants": [
+        {
+          "id": "39531071635529",
+          "title": "3/4\" Black (Standard Connectors)",
+          "price": 1,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2053"
+        },
+        {
+          "id": "39531071668297",
+          "title": "3/4\" Clear (Standard Connectors)",
+          "price": 1,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2054"
+        },
+        {
+          "id": "39531075895369",
+          "title": "1\" Clear (Pro Connectors)",
+          "price": 1.5,
+          "compareAt": null,
+          "available": false,
+          "sku": "MP2055"
+        }
+      ]
+    },
+    "hardware-electrical-conduit-projects": {
+      "title": "Extra Hardware",
+      "variants": [
+        {
+          "id": "39301233770569",
+          "title": "Silver",
+          "price": 2.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2092"
+        }
+      ]
+    },
+    "lean-business-bundle": {
+      "title": "Lean Business Bundle",
+      "variants": [
+        {
+          "id": "39658991288393",
+          "title": "Silver / 3/4\"",
+          "price": 2441.4,
+          "compareAt": 2724.5,
+          "available": true,
+          "sku": "MP1084"
+        },
+        {
+          "id": "39658991321161",
+          "title": "Silver / 1/2\"",
+          "price": 2536.4,
+          "compareAt": 2691,
+          "available": true,
+          "sku": "MP1085"
+        }
+      ]
+    },
+    "maker-bundle-modular-pipe-connectors": {
+      "title": "Maker Bundle",
+      "variants": [
+        {
+          "id": "39425862402121",
+          "title": "Silver / 3/4\"",
+          "price": 161.56,
+          "compareAt": 179.52,
+          "available": true,
+          "sku": "MP1022"
+        },
+        {
+          "id": "39641826263113",
+          "title": "Silver / 1/2\"",
+          "price": 170.2,
+          "compareAt": 189.12,
+          "available": true,
+          "sku": "MP1030"
+        },
+        {
+          "id": "39641826295881",
+          "title": "Silver / 1\"",
+          "price": 230.47,
+          "compareAt": 237.6,
+          "available": true,
+          "sku": "MP1032"
+        }
+      ]
+    },
+    "maker-pipe-minis": {
+      "title": "Maker Pipe Minis | 3D Modeling Connectors",
+      "variants": [
+        {
+          "id": "31830248357961",
+          "title": "",
+          "price": 4.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2033"
+        }
+      ]
+    },
+    "mixed-bundle": {
+      "title": "Mixed Structural Pipe Connector Bundle",
+      "variants": [
+        {
+          "id": "39425871937609",
+          "title": "Silver / 3/4\" / Without",
+          "price": 88.1,
+          "compareAt": 96.54,
+          "available": true,
+          "sku": "MP1028"
+        },
+        {
+          "id": "39663006154825",
+          "title": "Silver / 3/4\" / With",
+          "price": 110.85,
+          "compareAt": 125.13,
+          "available": true,
+          "sku": "MP1088"
+        },
+        {
+          "id": "39663006220361",
+          "title": "Silver / 1/2\" / Without",
+          "price": 92.84,
+          "compareAt": 106.18,
+          "available": true,
+          "sku": "MP1089"
+        },
+        {
+          "id": "39663006253129",
+          "title": "Silver / 1/2\" / With",
+          "price": 115.6,
+          "compareAt": 130.13,
+          "available": true,
+          "sku": "MP1090"
+        }
+      ]
+    },
+    "one-hole-straps": {
+      "title": "EMT Conduit One Hole Straps",
+      "variants": [
+        {
+          "id": "39444018200649",
+          "title": "3/4\" EMT Straps",
+          "price": 1.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2020"
+        },
+        {
+          "id": "39444018233417",
+          "title": "1\" EMT Straps",
+          "price": 3.25,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2043"
+        },
+        {
+          "id": "44057498714386",
+          "title": "1/2\" EMT Straps",
+          "price": 1.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2087"
+        }
+      ]
+    },
+    "pro-bundle-structural-pipe-connector": {
+      "title": "Pro Bundle",
+      "variants": [
+        {
+          "id": "39425871052873",
+          "title": "Silver / 3/4\"",
+          "price": 336.6,
+          "compareAt": 374,
+          "available": true,
+          "sku": "MP1023"
+        },
+        {
+          "id": "39641847922761",
+          "title": "Silver / 1/2\"",
+          "price": 354.6,
+          "compareAt": 394,
+          "available": true,
+          "sku": "MP1033"
+        },
+        {
+          "id": "39641847955529",
+          "title": "Silver / 1\"",
+          "price": 465.3,
+          "compareAt": 495,
+          "available": true,
+          "sku": "MP1035"
+        }
+      ]
+    },
+    "pro-t-connector": {
+      "title": "Pro T Connector",
+      "variants": [
+        {
+          "id": "39441147330633",
+          "title": "",
+          "price": 4.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0030"
+        }
+      ]
+    },
+    "quick-clamp": {
+      "title": "Quick Clamp",
+      "variants": [
+        {
+          "id": "44345963282706",
+          "title": "Silver",
+          "price": 2.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2096"
+        }
+      ]
+    },
+    "rubber-pipe-feet": {
+      "title": "Rubber Pipe Feet",
+      "variants": [
+        {
+          "id": "40062521704521",
+          "title": "Black (1/2\" EMT)",
+          "price": 3.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2086"
+        },
+        {
+          "id": "39425877999689",
+          "title": "Black (3/4\" EMT)",
+          "price": 3.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2028"
+        },
+        {
+          "id": "39444026654793",
+          "title": "Black (1\" EMT)",
+          "price": 5.45,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2042"
+        }
+      ]
+    },
+    "sample-bundle": {
+      "title": "Sample Bundle",
+      "variants": [
+        {
+          "id": "39658389209161",
+          "title": "Silver / 3/4\" / Without",
+          "price": 29.89,
+          "compareAt": 33.53,
+          "available": true,
+          "sku": "MP1036"
+        },
+        {
+          "id": "39658389241929",
+          "title": "Silver / 3/4\" / With",
+          "price": 52.64,
+          "compareAt": 57.48,
+          "available": true,
+          "sku": "MP1037"
+        },
+        {
+          "id": "39658389274697",
+          "title": "Silver / 1/2\" / Without",
+          "price": 31.12,
+          "compareAt": 34.83,
+          "available": true,
+          "sku": "MP1038"
+        },
+        {
+          "id": "39658389307465",
+          "title": "Silver / 1/2\" / With",
+          "price": 53.87,
+          "compareAt": 58.78,
+          "available": true,
+          "sku": "MP1039"
+        }
+      ]
+    },
+    "self-drilling-screws": {
+      "title": "Self Drilling Screws",
+      "variants": [
+        {
+          "id": "39442817220681",
+          "title": "",
+          "price": 1.05,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2046"
+        }
+      ]
+    },
+    "shrink-wrap": {
+      "title": "Shrink Wrap",
+      "variants": [
+        {
+          "id": "15772300279851",
+          "title": "Black",
+          "price": 10.95,
+          "compareAt": null,
+          "available": false,
+          "sku": "MP2008"
+        },
+        {
+          "id": "15772307652651",
+          "title": "White",
+          "price": 10.95,
+          "compareAt": null,
+          "available": false,
+          "sku": "MP2005"
+        },
+        {
+          "id": "15772307685419",
+          "title": "Blue",
+          "price": 10.95,
+          "compareAt": null,
+          "available": false,
+          "sku": "MP2007"
+        },
+        {
+          "id": "15772307718187",
+          "title": "Red",
+          "price": 10.95,
+          "compareAt": null,
+          "available": false,
+          "sku": "MP2006"
+        },
+        {
+          "id": "15772307750955",
+          "title": "Yellow",
+          "price": 10.95,
+          "compareAt": null,
+          "available": false,
+          "sku": "MP2004"
+        }
+      ]
+    },
+    "signature-maker-pipe-sling-chair-kit": {
+      "title": "Signature Maker Pipe Sling Chair Kit",
+      "variants": [
+        {
+          "id": "15772264038443",
+          "title": "Aztec",
+          "price": 9999,
+          "compareAt": null,
+          "available": false,
+          "sku": "MP2012"
+        },
+        {
+          "id": "15772277669931",
+          "title": "Bow Wow",
+          "price": 9999,
+          "compareAt": null,
+          "available": false,
+          "sku": "MP2011"
+        },
+        {
+          "id": "15772277702699",
+          "title": "Black",
+          "price": 9999,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2009"
+        },
+        {
+          "id": "15772277735467",
+          "title": "Natural",
+          "price": 9999,
+          "compareAt": null,
+          "available": false,
+          "sku": "MP2010"
+        }
+      ]
+    },
+    "simple-allen-key": {
+      "title": "Simple Allen Key",
+      "variants": [
+        {
+          "id": "39356163260489",
+          "title": "",
+          "price": 1.45,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2016"
+        }
+      ]
+    },
+    "standup-workstation-desk": {
+      "title": "DIY Standing  Desk Kit",
+      "variants": [
+        {
+          "id": "39564758155337",
+          "title": "Silver",
+          "price": 142.47,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2075"
+        }
+      ]
+    },
+    "starter-bundle": {
+      "title": "Starter Bundle",
+      "variants": [
+        {
+          "id": "39658572349513",
+          "title": "Silver / 3/4\" / Without",
+          "price": 148.15,
+          "compareAt": 166.04,
+          "available": true,
+          "sku": "MP1044"
+        },
+        {
+          "id": "39658572382281",
+          "title": "Silver / 3/4\" / With",
+          "price": 170.9,
+          "compareAt": 189.99,
+          "available": true,
+          "sku": "MP1045"
+        },
+        {
+          "id": "39658572415049",
+          "title": "Silver / 1/2\" / Without",
+          "price": 155.37,
+          "compareAt": 173.64,
+          "available": true,
+          "sku": "MP1046"
+        },
+        {
+          "id": "39658572447817",
+          "title": "Silver / 1/2\" / With",
+          "price": 178.12,
+          "compareAt": 197.59,
+          "available": true,
+          "sku": "MP1047"
+        }
+      ]
+    },
+    "structural-emt-conduit-coupling": {
+      "title": "EMT Conduit Structural Coupling",
+      "variants": [
+        {
+          "id": "39973872369737",
+          "title": "Silver / 3/4\"",
+          "price": 5.45,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0062"
+        },
+        {
+          "id": "39973872402505",
+          "title": "Silver / 1/2\"",
+          "price": 5.65,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0063"
+        },
+        {
+          "id": "48017030283538",
+          "title": "Silver / 1\"",
+          "price": 7.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0079"
+        }
+      ]
+    },
+    "t-connector": {
+      "title": "T Connector",
+      "variants": [
+        {
+          "id": "39295993184329",
+          "title": "Silver / 3/4\"",
+          "price": 3.74,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0021"
+        },
+        {
+          "id": "39641520799817",
+          "title": "Silver / 1/2\"",
+          "price": 3.94,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0032"
+        },
+        {
+          "id": "39641520832585",
+          "title": "Silver / 1\"",
+          "price": 4.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP0030"
+        }
+      ]
+    },
+    "t-handle-hex-wrench": {
+      "title": "T Handle Hex Wrench (Long)",
+      "variants": [
+        {
+          "id": "31581330407497",
+          "title": "",
+          "price": 9.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2014"
+        }
+      ]
+    },
+    "t-handle-hex-wrench-short": {
+      "title": "T Handle Hex Wrench (Short)",
+      "variants": [
+        {
+          "id": "39356141699145",
+          "title": "",
+          "price": 7.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2017"
+        }
+      ]
+    },
+    "threaded-pipe-inserts": {
+      "title": "Threaded Pipe Inserts",
+      "variants": [
+        {
+          "id": "39288277139529",
+          "title": "1/4-20 Insert (No Lip For 3/4\" EMT)",
+          "price": 3.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2031"
+        },
+        {
+          "id": "39288277172297",
+          "title": "1/4-20 Insert (With Lip For 3/4\" EMT)",
+          "price": 3.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2032"
+        },
+        {
+          "id": "39288277073993",
+          "title": "3/8-16 Insert (No Lip For 3/4\" EMT)",
+          "price": 3.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2029"
+        },
+        {
+          "id": "39288277106761",
+          "title": "3/8-16 Insert (With Lip For 3/4\" EMT)",
+          "price": 3.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2030"
+        },
+        {
+          "id": "39444024197193",
+          "title": "1/4-20 Insert (With Lip For 1\" EMT)",
+          "price": 7.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2038"
+        },
+        {
+          "id": "39444024229961",
+          "title": "1/4-20 Insert (No Lip For 1\" EMT)",
+          "price": 7.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2039"
+        },
+        {
+          "id": "39444024262729",
+          "title": "3/8-16 Insert (With Lip For 1\" EMT)",
+          "price": 7.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2040"
+        },
+        {
+          "id": "48031418679570",
+          "title": "3/8-16 Insert (No Lip For 1\" EMT)",
+          "price": 7.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2097"
+        }
+      ]
+    },
+    "tool-bundle": {
+      "title": "Tool Bundle",
+      "variants": [
+        {
+          "id": "39288739430473",
+          "title": "",
+          "price": 32.95,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2027"
+        }
+      ]
+    },
+    "top-rail-t-connector": {
+      "title": "Top Rail T Connector",
+      "variants": [
+        {
+          "id": "45257024209170",
+          "title": "Silver / 1-3/8\"",
+          "price": 5.99,
+          "compareAt": null,
+          "available": false,
+          "sku": "MP0072"
+        }
+      ]
+    },
+    "tractor-canopy": {
+      "title": "DIY Tractor Canopy Kit",
+      "variants": [
+        {
+          "id": "39546036977737",
+          "title": "Silver",
+          "price": 43.68,
+          "compareAt": null,
+          "available": true,
+          "sku": "MP2083"
+        }
+      ]
+    }
+  }
+}
