@@ -39,8 +39,9 @@ Cut lengths subtract how far a pipe end stops short of the joint centre (half th
 
 The catalog (`src/catalog/catalog.ts`) lists every item in the Modular Pipe Fittings & Accessories collection: connectors, flanges, caps, feet, casters, shims, clamps, straps, inserts, tools, bundles and project kits, plus EMT sticks from the hardware store.
 
-The prices were gathered on 2026-09-27 from search-engine snapshots of the store, because the store could not be fetched directly from the environment this was built in. Each price carries a basis that the UI shows:
+The catalog's own prices were gathered on 2026-09-27 from search-engine snapshots of the store, because the store could not be fetched directly from the environment this was built in. Once `npm run sync-prices` has run (see below), the store's current prices replace them. Each price carries a basis that the UI shows:
 
+- **live**: fetched from the store by the price sync;
 - **verified**: matches the store's bundle prices (each bundle's regular price is the sum of its connectors);
 - **snapshot**: seen in a snapshot of the product page;
 - **est.**: only one price was shown, so 1/2" and 1" are assumed to match 3/4";
@@ -54,7 +55,9 @@ Anyone can correct a price on the **Prices** tab; the totals use the edits.
 npm run sync-prices
 ```
 
-This fetches `https://makerpipe.com/products/<handle>.js` for every catalog item and writes current prices and Shopify variant ids to `src/catalog/live-prices.json`. The app overlays that file on the catalog, marks those prices **live**, and the Parts tab's order button becomes "Add everything to the makerpipe.com cart" (a standard Shopify cart link, e.g. `https://makerpipe.com/cart/<variant>:<qty>,…`). The script also lists collection products the catalog does not know about yet. Commit the updated JSON and rebuild.
+This fetches `https://makerpipe.com/products/<handle>.js` for every catalog item and writes current prices and Shopify variant ids to `src/catalog/live-prices.json`. The app overlays that file on the catalog, marks those prices **live**, and the Parts tab's order button becomes "Add everything to the makerpipe.com cart" (a standard Shopify cart link, e.g. `https://makerpipe.com/cart/<variant>:<qty>,…`). The script also lists collection products the catalog does not know about yet. Commit the updated JSON; merging it to `main` redeploys the site.
+
+Many products list more than the part itself as options: spare clamps, B-stock, bundles with or without an add-on, double and triple kits. For each size the app prices and carts the store's first-listed option, which is the complete part; bundles use their 3/4" set. Items the store shows as sold out are marked on the Parts and Prices tabs and left out of the cart link. The bill-of-materials tests mock `live-prices.json`, so refreshing prices does not change their expected values.
 
 Until the sync has run, the order button opens the store collection, and **Copy parts list** / **Download CSV** give you the list to order from.
 

@@ -1,10 +1,14 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { analyze } from './analyze';
-import { DEFAULT_ORDER, buildBom, cartLink, orderCsv, orderText, suggestBundle, designNeeds } from './bom';
+import { type Bom, type BomLine, DEFAULT_ORDER, buildBom, cartLink, orderCsv, orderText, suggestBundle, designNeeds } from './bom';
 import { buildCutPlan } from './cutlist';
 import { TEMPLATES, designFromTemplate, templateDefaults } from './templates';
 import type { Design, Pipe } from './types';
-import { PRODUCTS, applyLivePrices, sizeFromTitle, colorFromTitle } from '../catalog/catalog';
+import { PRODUCTS, applyLivePrices, isSoldOut, sizeFromTitle, colorFromTitle } from '../catalog/catalog';
+
+// These tests check the researched catalog, so they must not depend on
+// whatever `npm run sync-prices` last wrote. bom.live.test.ts covers live data.
+vi.mock('../catalog/live-prices.json', () => ({ default: { fetchedAt: null, products: {} } }));
 
 const tpl = (id: string, over: Record<string, number> = {}) => {
   const t = TEMPLATES.find((x) => x.id === id)!;
@@ -108,6 +112,38 @@ describe('bill of materials', () => {
     expect(url).toBeNull();
     expect(missing.length).toBeGreaterThan(0);
   });
+
+  it('leaves sold-out and unknown variants out of the cart link', () => {
+    const l = (over: Partial<BomLine>): BomLine => ({
+      key: `${over.productId}`,
+      productId: 'x',
+      name: 'X',
+      vendor: 'makerpipe',
+      group: 'connector',
+      source: 'design',
+      needed: 1,
+      qty: 1,
+      pack: 1,
+      unitPrice: 1,
+      total: 1,
+      basis: 'live',
+      estimate: false,
+      url: '',
+      ...over,
+    });
+    const bom = {
+      lines: [
+        l({ productId: 't', name: 'T Connector', variantId: '11', qty: 4 }),
+        l({ productId: 'caster-kit', name: 'Caster Kit', variantId: '22', soldOut: true }),
+        l({ productId: 'mystery', name: 'Mystery Part' }),
+        l({ productId: 'emt', name: 'EMT', vendor: 'local' }),
+      ],
+    } as Bom;
+    const { url, missing, soldOut } = cartLink(bom);
+    expect(url).toBe('https://makerpipe.com/cart/11:4');
+    expect(soldOut.map((x) => x.name)).toEqual(['Caster Kit']);
+    expect(missing.map((x) => x.name)).toEqual(['Mystery Part']);
+  });
 });
 
 describe('live price overlay', () => {
@@ -139,5 +175,77 @@ describe('live price overlay', () => {
     expect(t.price).toEqual({ '3/4': 3.5, '1': 4.25 });
     expect(t.variants?.['3/4']).toEqual({ silver: '111', black: '112' });
     expect(next.find((p) => p.id === '90')!.basis).toBe('verified');
+  });
+
+  // Variant lists below are cut down from what the store returned on 2026-09-29.
+  const overlay = (products: Record<string, { variants: { id: string; title: string; price: number; compareAt?: number; available?: boolean }[] }>) =>
+    applyLivePrices(PRODUCTS, { fetchedAt: '2026-09-29T15:34:44Z', products });
+
+  it("prices the store's first-listed option, not the cheapest spare part", () => {
+    const next = overlay({
+      'adjustable-angle-connector-hinge-connector': {
+        variants: [
+          { id: 'a1', title: 'Silver / 3/4" / Complete', price: 7.49 },
+          { id: 'a2', title: 'Silver / 3/4" / End Clamp', price: 4.25 },
+          { id: 'a3', title: 'Silver / 3/4" / Puzzle Piece Clamp', price: 3.24 },
+          { id: 'a4', title: 'Silver / 1/2" / Complete', price: 7.69 },
+          { id: 'a5', title: 'Silver / 1/2" / Puzzle Piece Clamp', price: 3.34 },
+        ],
+      },
+      'build-it-yourself-connector-kit': {
+        variants: [
+          { id: 'k1', title: 'Single Kit', price: 85.63, compareAt: 81.9 },
+          { id: 'k2', title: 'Double It!', price: 171.26 },
+          { id: 'k3', title: 'Triple It!', price: 256.89 },
+        ],
+      },
+    });
+    const adj = next.find((p) => p.id === 'adjustable')!;
+    expect(adj.price).toEqual({ '3/4': 7.49, '1/2': 7.69 });
+    expect(adj.variants).toEqual({ '3/4': { silver: 'a1' }, '1/2': { silver: 'a4' } });
+    const kit = next.find((p) => p.id === 'b-biy')!;
+    expect(kit.price).toBe(85.63);
+    expect(kit.variants).toEqual({ any: { any: 'k1' } });
+    expect(kit.compareAt).toBeUndefined();
+  });
+
+  it('prices bundles as their 3/4 in set without add-ons', () => {
+    const next = overlay({
+      'starter-bundle': {
+        variants: [
+          { id: 's1', title: 'Silver / 3/4" / Without', price: 148.15, compareAt: 166.04 },
+          { id: 's2', title: 'Silver / 3/4" / With', price: 170.9, compareAt: 189.99 },
+          { id: 's3', title: 'Silver / 1/2" / Without', price: 155.37, compareAt: 173.64 },
+        ],
+      },
+    });
+    const b = next.find((p) => p.id === 'b-starter')!;
+    expect(b.price).toBe(148.15);
+    expect(b.compareAt).toBe(166.04);
+    expect(b.variants).toEqual({ any: { silver: 's1' } });
+    expect(b.sizes).toBeUndefined();
+  });
+
+  it('takes sizes and sold-out variants from the store', () => {
+    const next = overlay({
+      'flange-connector': {
+        variants: [
+          { id: 'f1', title: 'Silver / 3/4"', price: 5.45 },
+          { id: 'f2', title: 'Silver / 1/2"', price: 5.55 },
+          { id: 'f3', title: 'Silver / 1"', price: 5.95 },
+        ],
+      },
+      'caster-kit-structural-pipe-project': {
+        variants: [
+          { id: 'c1', title: '3/4" EMT Conduit', price: 43.95, available: true },
+          { id: 'c2', title: '1" EMT Conduit', price: 43.95, available: false },
+        ],
+      },
+    });
+    expect(next.find((p) => p.id === 'flange')!.sizes).toEqual(['1/2', '3/4', '1']);
+    const casters = next.find((p) => p.id === 'caster-kit')!;
+    expect(casters.soldOut).toEqual(['c2']);
+    expect(isSoldOut(casters, '1')).toBe(true);
+    expect(isSoldOut(casters, '3/4')).toBe(false);
   });
 });

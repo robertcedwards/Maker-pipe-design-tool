@@ -1,5 +1,16 @@
 import { useEffect, useState } from 'react';
-import { CATALOG, COLLECTION_URL, type Product, type ProductGroup, basePrice, isEstimate, priceKey, pricesGatheredLabel } from '../../catalog/catalog';
+import {
+  CATALOG,
+  COLLECTION_URL,
+  LIVE_FETCHED,
+  type Product,
+  type ProductGroup,
+  basePrice,
+  isEstimate,
+  isSoldOut,
+  priceKey,
+  pricesGatheredLabel,
+} from '../../catalog/catalog';
 import type { PipeSize } from '../../model/types';
 import { formatMoney } from '../../model/units';
 import { useDerived } from '../../state/derived';
@@ -60,6 +71,7 @@ function PriceInput({ product, size }: { product: Product; size?: PipeSize }) {
         {size ? `${size}"` : 'Price'}
         {product.pack > 1 ? ` · ${product.pack}-pack` : ''}
         {!edited && isEstimate(product, size) ? ' · est.' : ''}
+        {isSoldOut(product, size) ? ' · sold out' : ''}
       </label>
       <span className={`price-input${edited ? ' edited' : ''}`}>
         $
@@ -190,9 +202,12 @@ export function CatalogTab() {
           <a href={COLLECTION_URL} target="_blank" rel="noreferrer">
             Modular Pipe Fittings & Accessories
           </a>{' '}
-          collection, with prices gathered on {pricesGatheredLabel()}. Click any price to correct it; totals use your figures. Where the
-          store showed one price for several sizes, the 1/2" and 1" prices are marked “est.”. Use the + buttons to add extras to
-          your order.
+          collection, with prices {LIVE_FETCHED ? 'fetched from the store' : 'gathered'} on {pricesGatheredLabel()}. Click any price to
+          correct it; totals use your figures.{' '}
+          {LIVE_FETCHED
+            ? 'Where a product has options, the price is for the store’s first-listed option (the complete part, not spare pieces).'
+            : 'Where the store showed one price for several sizes, the 1/2" and 1" prices are marked “est.”.'}{' '}
+          Use the + buttons to add extras to your order.
         </p>
       </div>
       {GROUPS.map((g) => {

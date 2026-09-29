@@ -63,6 +63,8 @@ export interface BomLine {
   note?: string;
   url: string;
   variantId?: string;
+  /** The store lists this variant as sold out. */
+  soldOut?: boolean;
 }
 
 export interface BundleSuggestion {
@@ -154,6 +156,7 @@ function toLine(n: Need, opts: OrderOptions, finish: Finish): BomLine {
   const p = CATALOG_BY_ID[n.productId];
   const qty = Math.ceil(n.needed / p.pack);
   const { price, basis, estimate } = priceFor(p.id, n.size, opts.priceOverrides);
+  const variantId = variantFor(p, n.size, finish);
   return {
     key: `${n.source}:${priceKey(p.id, n.size)}`,
     productId: p.id,
@@ -171,7 +174,8 @@ function toLine(n: Need, opts: OrderOptions, finish: Finish): BomLine {
     estimate,
     note: n.note,
     url: p.url,
-    variantId: variantFor(p, n.size, finish),
+    variantId,
+    soldOut: !!variantId && !!p.soldOut?.includes(variantId),
   };
 }
 
@@ -294,17 +298,23 @@ export function buildBom(design: Design, analysis: Analysis, plan: CutPlan, opts
   };
 }
 
-/** Shopify cart permalink for every Maker Pipe line that has a known variant id. */
-export function cartLink(bom: Bom): { url: string | null; missing: BomLine[] } {
+/**
+ * Shopify cart permalink for every Maker Pipe line that has a known variant id
+ * and is in stock. Lines without an id are `missing`; sold-out lines are left
+ * out so they cannot break the cart.
+ */
+export function cartLink(bom: Bom): { url: string | null; missing: BomLine[]; soldOut: BomLine[] } {
   const store = bom.lines.filter((l) => l.vendor === 'makerpipe');
   const qty = new Map<string, number>();
   const missing: BomLine[] = [];
+  const soldOut: BomLine[] = [];
   for (const l of store) {
     if (!l.variantId) missing.push(l);
+    else if (l.soldOut) soldOut.push(l);
     else qty.set(l.variantId, (qty.get(l.variantId) ?? 0) + l.qty);
   }
-  if (!qty.size) return { url: null, missing };
-  return { url: `${STORE}/cart/${[...qty].map(([id, n]) => `${id}:${n}`).join(',')}`, missing };
+  if (!qty.size) return { url: null, missing, soldOut };
+  return { url: `${STORE}/cart/${[...qty].map(([id, n]) => `${id}:${n}`).join(',')}`, missing, soldOut };
 }
 
 const sizeLabel = (s?: PipeSize) => (s ? `${s}"` : '');
