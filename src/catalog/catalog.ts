@@ -18,8 +18,11 @@ export const STORE = 'https://makerpipe.com';
 export const COLLECTION_URL = `${STORE}/collections/modular-pipe-fittings`;
 export const PRICES_GATHERED = '2026-09-27';
 
+/** Date of the live price sync, if one has been committed. */
+export const LIVE_FETCHED: string | null = (live as LivePrices).fetchedAt?.slice(0, 10) ?? null;
+
 export const pricesGatheredLabel = (): string =>
-  new Date(`${PRICES_GATHERED}T12:00:00`).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  new Date(`${LIVE_FETCHED ?? PRICES_GATHERED}T12:00:00`).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 
 /**
  * - verified: matches the store's own bundle price arithmetic
@@ -70,6 +73,8 @@ export interface Product {
   vendor: 'makerpipe' | 'local';
   /** Shopify variant ids by size, filled in by the live price sync. */
   variants?: Partial<Record<PipeSize | 'any', { silver?: string; black?: string; any?: string }>>;
+  /** Variant ids the store lists as sold out (live price sync). */
+  soldOut?: string[];
   url: string;
 }
 
@@ -770,7 +775,7 @@ export interface LiveVariant {
 
 export interface LivePrices {
   fetchedAt: string | null;
-  products: Record<string, { variants: LiveVariant[] }>;
+  products: Record<string, { title?: string; variants: LiveVariant[] }>;
 }
 
 /** Read a size out of a Shopify variant title such as `3/4" / Silver` or `1 inch`. */
@@ -789,13 +794,35 @@ export function colorFromTitle(title: string): 'silver' | 'black' | undefined {
   return undefined;
 }
 
-/** Overlay live variant prices and ids onto the researched catalog. */
+/**
+ * Overlay live variant prices and ids onto the researched catalog.
+ *
+ * Many products list more options than the part itself: spare clamps
+ * ("Middle Clamp", "Base Pieces Only"), B-stock, bundles "With" an add-on,
+ * double and triple kits. The store lists its default option first, so for
+ * each size and colour the first variant is the one priced and put in the
+ * cart. Bundles are 3/4 in sets here, so they take the 3/4 in variant.
+ */
 export function applyLivePrices(products: Product[], data: LivePrices): Product[] {
   const fetched = data.fetchedAt;
   if (!fetched) return products;
   return products.map((p) => {
     const lp = p.handle ? data.products[p.handle] : undefined;
     if (!lp || !lp.variants.length) return p;
+    type Picked = Omit<LiveVariant, 'color'> & { color: 'silver' | 'black' | 'any' };
+    const first = new Map<string, Picked>();
+    for (const v of lp.variants) {
+      const size = v.size ?? sizeFromTitle(v.title);
+      const color = v.color ?? colorFromTitle(v.title) ?? 'any';
+      const key = `${size ?? 'any'}|${color}`;
+      if (!first.has(key)) first.set(key, { ...v, size, color });
+    }
+    let picked = [...first.values()];
+    if (p.group === 'bundle' && picked.some((v) => v.size)) {
+      const set = picked.filter((v) => v.size === '3/4');
+      picked = (set.length ? set : picked.slice(0, 1)).map((v) => ({ ...v, size: undefined }));
+    }
+
     const next: Product = {
       ...p,
       basis: 'live',
@@ -804,18 +831,33 @@ export function applyLivePrices(products: Product[], data: LivePrices): Product[
     };
     const variants: NonNullable<Product['variants']> = {};
     const prices: Partial<Record<PipeSize, number>> = {};
-    for (const v of lp.variants) {
-      const size = v.size ?? sizeFromTitle(v.title);
-      const color = v.color ?? colorFromTitle(v.title) ?? 'any';
-      const key = size ?? 'any';
-      variants[key] = { ...variants[key], [color]: v.id };
-      if (size) prices[size] = Math.min(prices[size] ?? Infinity, v.price);
-      else if (typeof next.price !== 'object' || next.price === null) next.price = v.price;
+    let flat: Picked | undefined;
+    for (const v of picked) {
+      const key = v.size ?? 'any';
+      variants[key] = { ...variants[key], [v.color]: v.id };
+      if (v.size) prices[v.size] ??= v.price;
+      else flat ??= v;
     }
-    if (Object.keys(prices).length) next.price = prices;
+    const sizes = CORE_SIZES.filter((s) => s in prices);
+    if (sizes.length) {
+      next.price = prices;
+      next.sizes = sizes;
+    } else if (flat) {
+      next.price = flat.price;
+      next.compareAt = flat.compareAt && flat.compareAt > flat.price ? flat.compareAt : undefined;
+    }
     next.variants = variants;
+    const soldOut = picked.filter((v) => v.available === false).map((v) => v.id);
+    next.soldOut = soldOut.length ? soldOut : undefined;
     return next;
   });
+}
+
+/** Whether the store has every variant for this size sold out (live data only). */
+export function isSoldOut(p: Product, size?: PipeSize): boolean {
+  const v = p.variants?.[size ?? 'any'] ?? p.variants?.any;
+  const ids = Object.values(v ?? {});
+  return ids.length > 0 && ids.every((id) => p.soldOut?.includes(id));
 }
 
 export const CATALOG: Product[] = applyLivePrices(PRODUCTS, live as LivePrices);

@@ -52,6 +52,11 @@ function Line({ l }: { l: BomLine }) {
               {chip.text}
             </span>
           )}
+          {l.soldOut && (
+            <span className="chip warning" title="The store lists this as sold out, so it is left out of the cart link.">
+              sold out
+            </span>
+          )}
         </div>
       </div>
       <div className="line-price">
@@ -209,6 +214,12 @@ export function PartsTab() {
         )}
         {cart.url && cart.missing.length > 0 && (
           <p className="note">Add these by hand: {cart.missing.map((l) => l.name).join(', ')}.</p>
+        )}
+        {cart.soldOut.length > 0 && (
+          <p className="note">
+            Sold out on the store, so not in the cart:{' '}
+            {cart.soldOut.map((l) => `${l.name}${l.size ? ` ${l.size}"` : ''}`).join(', ')}.
+          </p>
         )}
         <div className="row">
           <button
